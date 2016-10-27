@@ -1,0 +1,31 @@
+/*#region Splash */
+
+.page-splash {
+    z-index: 99999 !important;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    pointer-events: auto;
+    backface-visibility: hidden;
+    transition: opacity 0.3s linear;
+    text {
+    	font-family: fantasy;
+    	fill: #F58A00;
+    	font-size: 100px;
+    	-webkit-font-smoothing: antialiased;
+    }
+    &.drop-down{
+    	transform-origin: right top;
+    	animation: hinge 3s ease-in forwards;
+    }
+}
+
+.page-splash-message {
+    text-align: center;
+    margin: 20% auto 0 auto;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.15);
+    padding: 0;
+}

@@ -1,0 +1,26 @@
+{
+  "name": "presentation",
+  "version": "0.0.1",
+  "description": "presentation",
+  "authors": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular-mocks": "^1.5.3",
+    "sinon": "http://sinonjs.org/releases/sinon-1.12.1.js",
+    "bardjs": "^0.1.8"
+  },
+  "dependencies": {
+    "jquery": "^2.2.2",
+    "angular": "~1.5.3"
+  },
+  "resolutions": {
+    "angular": "1.5.3"
+  }
+}
