@@ -30,12 +30,12 @@
 
 <body>
     <!-- <div ng-include="'app/layout/shell.html'"></div> -->
-    <div class="page-splash drop-down">
+    <div class="page-splash " ng-class="Splash.dropDown">
         <div class="page-splash-message">
-            <svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1024px" height="100px" viewBox="0 0 1024 100">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1024px" height="100px" viewBox="0 0 1024 100">
                 <defs>
                     <filter id="filter">
-                        <feFlood flood-color="#333" result="#333" />
+                        <feFlood flood-color="#000" result="#000" />
                         <feFlood flood-color="red" result="flood1" />
                         <feFlood flood-color="limegreen" result="flood2" />
                         <feOffset in="SourceGraphic" dx="3" dy="0" result="off1a" />
@@ -45,14 +45,14 @@
                         <feComposite in="flood1" in2="off1a" operator="in" result="comp1" />
                         <feComposite in="flood2" in2="off2a" operator="in" result="comp2" />
                         <feMerge x="0" width="100%" result="merge1">
-                            <feMergeNode in="#333" />
+                            <feMergeNode in="#000" />
                             <feMergeNode in="comp1" />
                             <feMergeNode in="off1b" />
                             <animate attributeName="y" id="y" dur="4s" values='104px; 104px; 30px; 105px; 30px; 2px; 2px; 50px; 40px; 105px; 105px; 20px; 6ßpx; 40px; 104px; 40px; 70px; 10px; 30px; 104px; 102px' keyTimes='0; 0.362; 0.368; 0.421; 0.440; 0.477; 0.518; 0.564; 0.593; 0.613; 0.644; 0.693; 0.721; 0.736; 0.772; 0.818; 0.844; 0.894; 0.925; 0.939; 1' repeatCount="indefinite" />
                             <animate attributeName="height" id="h" dur="4s" values='10px; 0px; 10px; 30px; 50px; 0px; 10px; 0px; 0px; 0px; 10px; 50px; 40px; 0px; 0px; 0px; 40px; 30px; 10px; 0px; 50px' keyTimes='0; 0.362; 0.368; 0.421; 0.440; 0.477; 0.518; 0.564; 0.593; 0.613; 0.644; 0.693; 0.721; 0.736; 0.772; 0.818; 0.844; 0.894; 0.925; 0.939; 1' repeatCount="indefinite" />
                         </feMerge>
                         <feMerge x="0" width="100%" y="60px" height="65px" result="merge2">
-                            <feMergeNode in="#333" />
+                            <feMergeNode in="#000" />
                             <feMergeNode in="comp2" />
                             <feMergeNode in="off2b" />
                             <animate attributeName="y" id="y" dur="4s" values='103px; 104px; 69px; 53px; 42px; 104px; 78px; 89px; 96px; 100px; 67px; 50px; 96px; 66px; 88px; 42px; 13px; 100px; 100px; 104px;' keyTimes='0; 0.055; 0.100; 0.125; 0.159; 0.182; 0.202; 0.236; 0.268; 0.326; 0.357; 0.400; 0.408; 0.461; 0.493; 0.513; 0.548; 0.577; 0.613; 1' repeatCount="indefinite" />
@@ -70,8 +70,11 @@
                 </g>
             </svg>
         </div>
-        <div class="progress progress-striped active page-progress-bar">
-            <div class="bar"></div>
+        <div class="loading-spinner">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 187.3 93.7" preserveAspectRatio="xMidYMid meet" class="loading_svg">
+                <path stroke="#fff" id="outline" fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M93.9,46.4c9.3,9.5,13.8,17.9,23.5,17.9s17.5-7.8,17.5-17.5s-7.8-17.6-17.5-17.5c-9.7,0.1-13.3,7.2-22.1,17.1 c-8.9,8.8-15.7,17.9-25.4,17.9s-17.5-7.8-17.5-17.5s7.8-17.5,17.5-17.5S86.2,38.6,93.9,46.4z"></path>
+                <path id="outline-bg" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M93.9,46.4c9.3,9.5,13.8,17.9,23.5,17.9s17.5-7.8,17.5-17.5s-7.8-17.6-17.5-17.5c-9.7,0.1-13.3,7.2-22.1,17.1 c-8.9,8.8-15.7,17.9-25.4,17.9s-17.5-7.8-17.5-17.5s7.8-17.5,17.5-17.5S86.2,38.6,93.9,46.4z"></path>
+            </svg>
         </div>
     </div>
     <!--
@@ -81,7 +84,6 @@
         <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
         <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
     </div>
-
     <!--
         
         Now that's the core element used by impress.js.
@@ -104,7 +106,6 @@
         
     -->
     <div id="impress">
-
         <!--
             
             Here is where interesting thing start to happen.
@@ -125,7 +126,6 @@
         <div id="bored" class="step slide" data-x="-1000" data-y="-1500">
             <q>Aren’t you just <b>bored</b> with all those slides-based presentations?</q>
         </div>
-
         <!--
             
             The `id` attribute of the step element is used to identify it in the URL, but it's optional.
@@ -144,11 +144,9 @@
         <div class="step slide" data-x="0" data-y="-1500">
             <q>Don’t you think that presentations given <strong>in modern browsers</strong> shouldn’t <strong>copy the limits</strong> of ‘classic’ slide decks?</q>
         </div>
-
         <div class="step slide" data-x="1000" data-y="-1500">
             <q>Would you like to <strong>impress your audience</strong> with <strong>stunning visualization</strong> of your talk?</q>
         </div>
-
         <!--
             
             This is an example of step element being scaled.
@@ -164,7 +162,6 @@
             <h1>impress.js<sup>*</sup></h1>
             <span class="footnote"><sup>*</sup> no rhyme intended</span>
         </div>
-
         <!--
             
             This element introduces rotation.
@@ -174,15 +171,13 @@
             
         -->
         <div id="its" class="step" data-x="850" data-y="3000" data-rotate="90" data-scale="5">
-            <p>It’s a <strong>presentation tool</strong> <br/>
-            inspired by the idea behind <a href="http://prezi.com">prezi.com</a> <br/>
-            and based on the <strong>power of CSS3 transforms and transitions</strong> in modern browsers.</p>
+            <p>It’s a <strong>presentation tool</strong>
+                <br/> inspired by the idea behind <a href="http://prezi.com">prezi.com</a>
+                <br/> and based on the <strong>power of CSS3 transforms and transitions</strong> in modern browsers.</p>
         </div>
-
         <div id="big" class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="6">
             <p>visualize your <b>big</b> <span class="thoughts">thoughts</span></p>
         </div>
-
         <!--
             
             And now it gets really exciting! We move into third dimension!
@@ -195,7 +190,6 @@
         <div id="tiny" class="step" data-x="2825" data-y="2325" data-z="-3000" data-rotate="300" data-scale="1">
             <p>and <b>tiny</b> ideas</p>
         </div>
-
         <!--
             
             This step here doesn't introduce anything new when it comes to data attributes, but you
@@ -219,20 +213,16 @@
         <div id="ing" class="step" data-x="3500" data-y="-850" data-rotate="270" data-scale="6">
             <p>by <b class="positioning">positioning</b>, <b class="rotating">rotating</b> and <b class="scaling">scaling</b> them on an infinite canvas</p>
         </div>
-
         <div id="imagination" class="step" data-x="6700" data-y="-300" data-scale="6">
             <p>the only <b>limit</b> is your <b class="imagination">imagination</b></p>
         </div>
-
         <div id="source" class="step" data-x="6300" data-y="2000" data-rotate="20" data-scale="4">
             <p>want to know more?</p>
             <q><a href="http://github.com/bartaz/impress.js">use the source</a>, Luke!</q>
         </div>
-
         <div id="one-more-thing" class="step" data-x="6000" data-y="4000" data-scale="2">
             <p>one more thing...</p>
         </div>
-
         <!--
             
             And the last one shows full power and flexibility of impress.js.
@@ -249,7 +239,6 @@
             <p><span class="have">have</span> <span class="you">you</span> <span class="noticed">noticed</span> <span class="its">it’s</span> <span class="in">in</span> <b>3D<sup>*</sup></b>?</p>
             <span class="footnote">* beat that, prezi ;)</span>
         </div>
-
         <!--
             
             So to summarize of all the possible attributes used to position presentation steps, we have:
@@ -267,7 +256,6 @@
         -->
         <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">
         </div>
-
     </div>
     <!-- build:js js/lib.js -->
     <!-- bower:js -->

@@ -7,19 +7,29 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #333;
+    background-color: #000;
     pointer-events: auto;
     backface-visibility: hidden;
     transition: opacity 0.3s linear;
     text {
-    	font-family: fantasy;
-    	fill: #F58A00;
-    	font-size: 100px;
-    	-webkit-font-smoothing: antialiased;
+        font-family: fantasy;
+        fill: #fff;
+        font-size: 100px;
+        -webkit-font-smoothing: antialiased;
     }
-    &.drop-down{
-    	transform-origin: right top;
-    	animation: hinge 3s ease-in forwards;
+    &.drop-down {
+        transform-origin: right top;
+        animation: hinge 3s ease-in forwards;
+    }
+    // loading cube 
+    .loading-spinner {
+        .loading_svg #outline {
+            stroke-dasharray: 2px, 200px;
+            stroke-dashoffset: 0;
+            animation: anim 2s linear infinite;
+        }
+        width: 300px;
+        margin: 120px auto 0;
     }
 }
 
