@@ -97,7 +97,7 @@ gulp.task('images', ['clean-images'], function() {
 });
 
 gulp.task('sass-watcher', function() {
-  gulp.watch([config.sass], ['styles']);
+  gulp.watch([config.sassAll], ['styles']);
 });
 
 /**
@@ -493,7 +493,7 @@ function startBrowserSync(isDev, specRunner) {
   // If build: watches the files, builds, and restarts browser-sync.
   // If dev: watches sass, compiles it to css, browser-sync handles reload
   if (isDev) {
-    gulp.watch([config.sass], ['styles'])
+    gulp.watch([config.sassAll], ['styles'])
       .on('change', changeEvent);
   } else {
     gulp.watch([config.sass, config.js, config.html], ['browserSyncReload'])
@@ -517,7 +517,7 @@ function startBrowserSync(isDev, specRunner) {
     injectChanges: true,
     logFileChanges: true,
     logLevel: 'info',
-    logPrefix: 'hottowel',
+    logPrefix: 'Frog',
     notify: true,
     reloadDelay: 0 //1000
   };
