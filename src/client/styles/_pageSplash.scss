@@ -26,7 +26,7 @@
         .loading_svg #outline {
             stroke-dasharray: 2px, 200px;
             stroke-dashoffset: 0;
-            animation: anim 2s linear infinite;
+            animation: infiniteSVG 2s linear infinite;
         }
         width: 300px;
         margin: 120px auto 0;
