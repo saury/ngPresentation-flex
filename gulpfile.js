@@ -6,6 +6,7 @@ var glob = require('glob');
 var gulp = require('gulp');
 var path = require('path');
 var _ = require('lodash');
+var spriter = require('gulp-css-spriter');
 var $ = require('gulp-load-plugins')({ lazy: true });
 
 var colors = $.util.colors;
@@ -59,13 +60,24 @@ gulp.task('plato', function(done) {
  * Compile sass to css
  * @return {Stream}
  */
-gulp.task('styles', ['clean-styles'], function() {
+gulp.task('styles', function() {
   log('Compiling sass --> CSS');
+  var files = [].concat(
+    config.temp + '**/*.css',
+    config.build + 'styles/**/*.css'
+  );
+  clean(files);
 
   return gulp
     .src(config.sass)
     .pipe($.plumber()) // exit gracefully if something fails after this
     .pipe($.sass())
+    // .pipe(spriter({
+    //   'spritesmithOptions': {
+    //     algorithm: 'top-down',
+    //     algorithmOpts: {sort: false}
+    //   }
+    // }))
     //        .on('error', errorLogger) // more verbose and dupe output. requires emit.
     .pipe($.autoprefixer({ browsers: ['last 2 version', '> 5%'] }))
     .pipe(gulp.dest(config.temp));
@@ -519,7 +531,7 @@ function startBrowserSync(isDev, specRunner) {
     logLevel: 'info',
     logPrefix: 'Frog',
     notify: true,
-    reloadDelay: 0 //1000
+    reloadDelay: 500 //1000
   };
   if (specRunner) {
     options.startPath = config.specRunnerFile;
