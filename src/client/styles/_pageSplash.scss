@@ -39,3 +39,21 @@
     text-shadow: 2px 2px rgba(0, 0, 0, 0.15);
     padding: 0;
 }
+
+// animation
+.png-animation {
+    float: left;
+    width: (640px / 4);
+    height: (1136px / 4);
+    background: transparent url('../images/three/spritesheet.png') 0 0 no-repeat;
+    background-size: 100% auto;
+    animation: framerun 1234ms 2s steps(1) infinite;
+}
+
+@keyframes framerun {
+    @for $i from 1 through 37 {
+        #{($i  - 1) / 36 *100}% {
+            background-position: 0 #{-(($i - 1) * 1136px)/ 4};
+        }
+    }
+}
