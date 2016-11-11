@@ -29,8 +29,8 @@
 </head>
 
 <body>
-    <div class="page-splash" ng-controller="SplashCtrl as splash" ng-class="splash.dropDown" ng-click="splash.hide()">
-        <!-- <div class="page-splash-message">
+    <div class="page-splash" ng-class="splash.dropDown" impress-dir-splash ng-click='splash.hide()'>
+        <div class="page-splash-message">
             <svg xmlns="http://www.w3.org/2000/svg" width="1024px" height="100px" viewBox="0 0 1024 100">
                 <defs>
                     <filter id="filter">
@@ -69,14 +69,14 @@
                 </g>
             </svg>
         </div>
-        <div class="loading-spinner" ng-show="splash.isLoading">
+        <!-- <div class="loading-spinner" ng-show="splash.isLoading">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 187.3 93.7" preserveAspectRatio="xMidYMid meet" class="loading_svg">
                 <path stroke="#fff" id="outline" fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M93.9,46.4c9.3,9.5,13.8,17.9,23.5,17.9s17.5-7.8,17.5-17.5s-7.8-17.6-17.5-17.5c-9.7,0.1-13.3,7.2-22.1,17.1 c-8.9,8.8-15.7,17.9-25.4,17.9s-17.5-7.8-17.5-17.5s7.8-17.5,17.5-17.5S86.2,38.6,93.9,46.4z"></path>
                 <path id="outline-bg" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M93.9,46.4c9.3,9.5,13.8,17.9,23.5,17.9s17.5-7.8,17.5-17.5s-7.8-17.6-17.5-17.5c-9.7,0.1-13.3,7.2-22.1,17.1 c-8.9,8.8-15.7,17.9-25.4,17.9s-17.5-7.8-17.5-17.5s7.8-17.5,17.5-17.5S86.2,38.6,93.9,46.4z"></path>
             </svg>
         </div> -->
+        <!-- <canvas id="demo" width="1024" height="400" style="position: absolute; top: 50%; left: 50%; margin-left: -512px; margin-top: -200px"></canvas> -->
         <!-- <div class="png-animation"></div> -->
-        <canvas id="demo"></canvas>
     </div>
     <!--
         
@@ -117,7 +117,7 @@
             It will not be rotated or scaled.
             
         -->
-        <div id="bored" class="step slide" data-x="-1000" data-y="-1500">
+        <div class="step slide" data-x="-1000" data-y="-1500">
             <q>Aren’t you just <b>bored</b> with all those slides-based presentations?</q>
         </div>
         <!--
@@ -255,14 +255,16 @@
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/angular/angular.js"></script>
+    <!-- <script src="/bower_components/EaselJS/lib/easeljs-0.8.2.combined.js"></script> -->
     <!-- endbower -->
     <script src="/src/client/vender/impress.js"></script>
-    <script src="/src/client/vender/canvasFramePlayer.js"></script>
+    <!-- <script src="/src/client/vender/canvasFramePlayer.js"></script> -->
     <!-- endbuild -->
     <!-- build:js js/app.js -->
     <!-- inject:js -->
     <script src="/src/client/app/app.module.js"></script>
     <script src="/src/client/app/presentation/splash.controller.js"></script>
+    <script src="/src/client/app/presentation/splash.directive.js"></script>
     <!-- endinject -->
     <!-- inject:templates:js -->
     <!-- endinject -->

@@ -11,6 +11,9 @@
     pointer-events: auto;
     backface-visibility: hidden;
     transition: opacity 0.3s linear;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text {
         font-family: fantasy;
         fill: #fff;
@@ -18,7 +21,7 @@
         -webkit-font-smoothing: antialiased;
     }
     &.drop-down {
-        transform-origin: right top;
+        // transform-origin: right top;
         animation: hinge 3s ease-in forwards;
     }
     // loading spinner 
@@ -29,13 +32,12 @@
             animation: infiniteSVG 2s linear infinite;
         }
         width: 300px;
-        margin: 120px auto 0;
     }
 }
 
 .page-splash-message {
+    transform: scale(1.4);
     text-align: center;
-    margin: 20% auto 0 auto;
     text-shadow: 2px 2px rgba(0, 0, 0, 0.15);
     padding: 0;
 }
