@@ -29,9 +29,9 @@
 </head>
 
 <body>
-    <div class="page-splash" ng-class="splash.dropDown" impress-dir-splash ng-click='splash.hide()'>
+    <div class="page-splash" ng-class="splash.dropDown" impress-dir-splash ng-click='splash.hide()' ng-if=false>
         <div class="page-splash-message">
-            <svg xmlns="http://www.w3.org/2000/svg" width="1024px" height="100px" viewBox="0 0 1024 100">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1024" height="100" viewBox="0 0 1024 100">
                 <defs>
                     <filter id="filter">
                         <feFlood flood-color="#000" result="#000" />
@@ -65,7 +65,7 @@
                     </filter>
                 </defs>
                 <g>
-                    <text filter="url(#filter)" x="112" y="90" width="800">PRESENTATION - FLEX</text>
+                    <text filter="url(#filter)" x="237" y="90" width="550">CSS - FLEXBOX</text>
                 </g>
             </svg>
         </div>
@@ -99,7 +99,7 @@
         right around the corner of this tag ;)
         
     -->
-    <div id="impress">
+    <div id="impress" impress-dir-sliders>
         <!--
             
             Here is where interesting thing start to happen.
@@ -117,8 +117,101 @@
             It will not be rotated or scaled.
             
         -->
-        <div class="step slide" data-x="-1000" data-y="-1500">
-            <q>Aren’t you just <b>bored</b> with all those slides-based presentations?</q>
+        <div class="step slide old_time" data-x="-1000" data-y="-1500">
+            <h3>传统的布局写法与局限性</h3>
+            <p>栗子#1：</p>
+            <div class="example_1">
+                <div class="row clearfix">
+                    <div ng-click='sliders.oldTime.showLong($index)' ng-dblclick="sliders.oldTime.appendChild()" ng-repeat="item in sliders.oldTime.quaters track by $index" ng-bind='item'></div>
+                </div>
+            </div>
+            <div class="fg-row">
+                <div class="fg-col-xs-6">
+                    <pre>
+                        <code class="html">
+                    &lt;div&gt;
+                        /* 清除浮动 */
+                        &lt;div class=&quot;row clearfix&quot;&gt;
+                            &lt;div&gt;...&lt;/div&gt;
+                            &lt;div&gt;...&lt;/div&gt;
+                            &lt;div&gt;...&lt;/div&gt;
+                            &lt;div&gt;...&lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;    
+                        </code>
+                    </pre>
+                </div>
+                <div class="fg-col-xs-6">
+                    <pre>
+                        <code class="css">
+                    .row {
+                        /* 形成间隔 */
+                        margin: 0 15px;
+                    }
+                    .row > div {
+                        width: 25%;
+                        float: left;
+                        padding: 15px;
+                    }
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <div class="step slide old_time" data-x="-2100" data-y="-2400" data-z="-2000" data-rotate="30" data-scale="1">
+            <p>栗子#2：<span class="text-hide small">(不用translate做位移是有原因的, 添加动画时需要多余的操作)</span></p>
+            <div class="fg-row">
+                <div class="fg-col-xs-6">
+                    <div class="example_2">
+                        <div>好长好长好长好长好长好长好长好长好长好长好长好长好长好长好长好长好长好长好长好长好长</div>
+                    </div>
+                </div>
+                <div class="fg-col-xs-6">
+                    <pre>
+                        <code class="css">
+                    .outer {
+                        position: relative;
+                    }
+                    .inner {
+                        width: 200px;
+                        height: 200px;
+                        position: absolute;
+                        /* solution 1 */
+                        top: 50%;
+                        left: 50%;
+                        margin-left: -180px;
+                        margin-top: - 80px;
+                        /* solution 2 */
+                        top: 0; right: 0; bottom: 0; left: 0;
+                        margin: auto;
+                    }
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <div class="step slide old_time" data-x="-2100" data-y="-2400" data-z="-4000" data-rotate="60" data-scale="1">
+            <h3>缺点：</h3>
+            <div class="fg-row">
+                <div class="fg-col-xs-9 fg-off-xs-2">
+                    <ul class="h4">
+                        <br />
+                        <li>需要写多余的tag，不符合语义化</li>
+                        <li>大段的样式，可维护性感人</li>
+                        <li>珍贵的伪元素被无情的占用</li>
+                        <li>可能存在潜在的层叠问题</li>
+                        <li>......</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- flex start -->
+        <div class="step slide" data-x="0" data-y="-1500">
+            <h3>主角现身： FLEX</h3>
+            <p>
+                Flex是Flexible Box的缩写，意为"弹性布局"，用来为盒状模型提供最大的灵活性。
+            </p>
         </div>
         <!--
             
@@ -135,12 +228,10 @@
             Using classic `id`-based links like `#step-2` makes these links usable also in fallback mode.
             
         -->
-        <div class="step slide" data-x="0" data-y="-1500">
-            <q>Don’t you think that presentations given <strong>in modern browsers</strong> shouldn’t <strong>copy the limits</strong> of ‘classic’ slide decks?</q>
-        </div>
-        <div class="step slide" data-x="1000" data-y="-1500">
+        
+        <!-- <div class="step slide" data-x="1000" data-y="-1500">
             <q>Would you like to <strong>impress your audience</strong> with <strong>stunning visualization</strong> of your talk?</q>
-        </div>
+        </div> -->
         <!--
             
             This is an example of step element being scaled.
@@ -255,14 +346,17 @@
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/angular/angular.js"></script>
-    <!-- <script src="/bower_components/EaselJS/lib/easeljs-0.8.2.combined.js"></script> -->
+    <script src="/bower_components/EaselJS/lib/easeljs-0.8.2.combined.js"></script>
     <!-- endbower -->
     <script src="/src/client/vender/impress.js"></script>
+    <script src="/src/client/vender/highlight.js"></script>
     <!-- <script src="/src/client/vender/canvasFramePlayer.js"></script> -->
     <!-- endbuild -->
     <!-- build:js js/app.js -->
     <!-- inject:js -->
     <script src="/src/client/app/app.module.js"></script>
+    <script src="/src/client/app/presentation/sliders.controller.js"></script>
+    <script src="/src/client/app/presentation/sliders.directive.js"></script>
     <script src="/src/client/app/presentation/splash.controller.js"></script>
     <script src="/src/client/app/presentation/splash.directive.js"></script>
     <!-- endinject -->
