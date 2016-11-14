@@ -117,7 +117,7 @@
             It will not be rotated or scaled.
             
         -->
-        <div class="step slide old_time" data-x="-1000" data-y="-1500">
+        <div class="step slide old_time" data-x="-1000" data-y="-1500" data-z="-1000">
             <h3>传统的布局写法与局限性</h3>
             <p>栗子#1：</p>
             <div class="example_1">
@@ -158,7 +158,7 @@
                 </div>
             </div>
         </div>
-        <div class="step slide old_time" data-x="-2100" data-y="-2400" data-z="-2000" data-rotate="30" data-scale="1">
+        <div class="step slide old_time" data-x="-2100" data-y="-2400" data-z="-3000" data-rotate="30" data-scale="1">
             <p>栗子#2：<span class="text-hide small">(不用translate做位移是有原因的, 添加动画时需要多余的操作)</span></p>
             <div class="fg-row">
                 <div class="fg-col-xs-6">
@@ -190,13 +190,12 @@
                 </div>
             </div>
         </div>
-        <div class="step slide old_time" data-x="-2100" data-y="-2400" data-z="-4000" data-rotate="60" data-scale="1">
+        <div class="step old_time" data-x="-2100" data-y="-2400" data-z="-5000" data-rotate="60" data-scale="1">
             <h3>缺点：</h3>
             <div class="fg-row">
                 <div class="fg-col-xs-9 fg-off-xs-2">
-                    <ul class="h4">
-                        <br />
-                        <li>需要写多余的tag，不符合语义化</li>
+                    <ul>
+                        <li>多余的tag，不符合语义化</li>
                         <li>大段的样式，可维护性感人</li>
                         <li>珍贵的伪元素被无情的占用</li>
                         <li>可能存在潜在的层叠问题</li>
@@ -207,11 +206,12 @@
         </div>
 
         <!-- flex start -->
-        <div class="step slide" data-x="0" data-y="-1500">
-            <h3>主角现身： FLEX</h3>
+        <div class="step slide" data-x="200" data-y="-1500">
+            <h3>主角现身: FLEX</h3>
             <p>
                 Flex是Flexible Box的缩写，意为"弹性布局"，用来为盒状模型提供最大的灵活性。
             </p>
+            <!-- <img src="/src/client/images/browser_support.png" width="100%" alt=""> -->
         </div>
         <!--
             
