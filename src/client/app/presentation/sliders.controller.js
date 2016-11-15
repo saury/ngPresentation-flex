@@ -18,7 +18,7 @@
             ],
             showLong: function(order){
                 if(order > 1) return
-                else if(order === 1) {this.quaters.shift(); return}
+                else if(order === 1) {this.quaters.pop(); return}
                 this.quaters[order] = 'long long long long'
             },
             appendChild: function(){
@@ -32,6 +32,7 @@
             JAVal: 'center',
             FDVal: 'row',
             FWVal: 'wrap',
+            flexOrder: 0,
             AIList: ['center','flex-start','flex-end','baseline','stretch'],
             ASList: ['center','flex-start','flex-end','baseline','stretch'],
             JAList: ['center','flex-start','flex-end','space-between','space-around'],
