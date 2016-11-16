@@ -317,4 +317,34 @@ code {
     select{
     	font-size: 20px;
     }
+    .example_3 {
+		display: flex;
+		background: hsl(200, 40%, 70%);
+		.item{
+			padding: 10px;
+			box-sizing: border-box;
+			background: hsl(50, 80%, 50%);
+			background-clip: content-box;
+			ul {
+				text-align: center;
+				li:not(:last-child){
+					border-bottom: 1px dashed #fff;
+				}
+			}
+			input {
+				font-size: 80%;
+				width: 80%;
+				margin: 0 auto 20px;
+			}
+			.afterfix-px{
+				position: relative;
+					&:after{
+						content: 'px';
+						position: absolute;
+						height: 100%;
+						right: 20%;
+					}
+			}
+		}
+    }
 }

@@ -46,5 +46,23 @@
                 else this.mode = 'noedit'
             }
         }
+
+        vm.changeFlex = {
+            FSFB1: {
+                flexGrow: 1,
+                flexShrink: 1,
+                flexBasis: 200
+            },
+            FSFB2: {
+                flexGrow: 1,
+                flexShrink: 2,
+                flexBasis: 300
+            },
+            FSFB3: {
+                flexGrow: 1,
+                flexShrink: 3,
+                flexBasis: 500
+            },
+        }
     }
 })();

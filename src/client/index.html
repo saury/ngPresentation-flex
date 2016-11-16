@@ -342,13 +342,58 @@
             </pre>
         </div>
 
-        <div class="step slide" data-x="500" data-y="3000" data-z="-500" data-rotate-y="0" data-rotate-x="270" data-rotate-z="-90">
+        <div class="step slide flex-slide" data-x="500" data-y="3000" data-z="-500" data-rotate-y="0" data-rotate-x="270" data-rotate-z="-90">
             <h4>flex-shrink & flex-basis</h4>
             <p class="small"><strong>flexbox中元素宽度需收缩时才受这两个值的影响</strong></p>
-            <div class="example_4">
-                <div class="item item_1">1</div>
-                <div class="item item_2">2</div>
-                <div class="item item_3">3</div>
+            <div class="example_3">
+                <div class="item item_1" ng-style="{'flex-grow': sliders.changeFlex.FSFB1.flexGrow, 'flex-shrink': sliders.changeFlex.FSFB1.flexShrink, 'flex-basis': sliders.changeFlex.FSFB1.flexBasis}">
+                    <ul class="small">
+                        <li>
+                            <div>flex-grow:</div>
+                            <div><input type="number" ng-model='sliders.changeFlex.FSFB1.flexGrow'></div>
+                        </li>
+                        <li>
+                            <div>flex-shrink:</div>
+                            <div><input type="number" ng-model='sliders.changeFlex.FSFB1.flexShrink'></div>
+                        </li>
+                        <li>
+                            <div>flex-basis:</div>
+                            <div class="afterfix-px"><input type="number" step='100' ng-model='sliders.changeFlex.FSFB1.flexBasis'></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="item item_2" ng-style="{'flex-grow': sliders.changeFlex.FSFB2.flexGrow, 'flex-shrink': sliders.changeFlex.FSFB2.flexShrink, 'flex-basis': sliders.changeFlex.FSFB2.flexBasis}">
+                    <ul class="small">
+                        <li>
+                            <div>flex-grow:</div>
+                            <div><input type="number" ng-model='sliders.changeFlex.FSFB2.flexGrow'></div>
+                        </li>
+                        <li>
+                            <div>flex-shrink:</div>
+                            <div><input type="number" ng-model='sliders.changeFlex.FSFB2.flexShrink'></div>
+                        </li>
+                        <li>
+                            <div>flex-basis:</div>
+                            <div class="afterfix-px"><input type="number" step='100' ng-model='sliders.changeFlex.FSFB2.flexBasis'></div>
+                        </li>                        
+                    </ul>
+                </div>
+                <div class="item item_3" ng-style="{'flex-grow': sliders.changeFlex.FSFB3.flexGrow, 'flex-shrink': sliders.changeFlex.FSFB3.flexShrink, 'flex-basis': sliders.changeFlex.FSFB3.flexBasis}">
+                    <ul class="small">
+                        <li>
+                            <div>flex-grow:</div>
+                            <div><input type="number" ng-model='sliders.changeFlex.FSFB3.flexGrow'></div>
+                        </li>
+                        <li>
+                            <div>flex-shrink:</div>
+                            <div><input type="number" ng-model='sliders.changeFlex.FSFB3.flexShrink'></div>
+                        </li>
+                        <li>
+                            <div>flex-basis:</div>
+                            <div class="afterfix-px"><input type="number" step='100' ng-model='sliders.changeFlex.FSFB3.flexBasis'></div>
+                        </li>                        
+                    </ul>
+                </div>
             </div>
         </div>
        
