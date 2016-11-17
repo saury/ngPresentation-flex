@@ -62,7 +62,8 @@
                 flexGrow: 1,
                 flexShrink: 3,
                 flexBasis: 500
-            }
+            },
+            colWidth: []
         }
     }
 })();

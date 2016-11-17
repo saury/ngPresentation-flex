@@ -15,7 +15,19 @@
         return directive;
 
         function link(scope, element, attrs) {
-            console.log($('pre code'));
+
+            function getExampleThreeItemWidth() {
+                scope.sliders.changeFlex.colWidth[0] = $('.example_3 .item_1').outerWidth()
+                scope.sliders.changeFlex.colWidth[1] = $('.example_3 .item_2').outerWidth()
+                scope.sliders.changeFlex.colWidth[2] = $('.example_3 .item_3').outerWidth()
+            }
+
+            $timeout(getExampleThreeItemWidth, 0)
+
+            scope.$watch('sliders.changeFlex', function(o, n) {
+                getExampleThreeItemWidth();
+            }, true)
+            
         }
     }
 })();

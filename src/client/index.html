@@ -345,11 +345,17 @@
         <div class="step slide flex-slide" data-x="500" data-y="3000" data-z="-500" data-rotate-y="0" data-rotate-x="270" data-rotate-z="-90">
             <h4>flex-shrink & flex-basis</h4>
             <p class="small">flexbox中元素宽度<strong>需收缩时</strong>才受这两个值的影响</p>
-            <p class="small" style="font-size: 18px;">例子： 默认列宽:300px</p>
-            <div class="fg-row small">
-                <div class="fg-col-xs-4">width:</div>
-                <div class="fg-col-xs-4">width:</div>
-                <div class="fg-col-xs-4">width:</div>
+            <p class="small" style="font-size: 18px;">例子： 容器宽度:778px</p>
+            <div style="font-size: 20px; display: flex;">
+                <div style="padding: 0 10px" ng-style="{'flex-grow': sliders.changeFlex.FSFB1.flexGrow, 'flex-shrink': sliders.changeFlex.FSFB1.flexShrink, 'flex-basis': sliders.changeFlex.FSFB1.flexBasis}">
+                    width: {{sliders.changeFlex.colWidth[0]-1}}px
+                </div>
+                <div style="padding: 0 10px" ng-style="{'flex-grow': sliders.changeFlex.FSFB2.flexGrow, 'flex-shrink': sliders.changeFlex.FSFB2.flexShrink, 'flex-basis': sliders.changeFlex.FSFB2.flexBasis}">
+                    width: {{sliders.changeFlex.colWidth[1]-1}}px
+                </div>
+                <div style="padding: 0 10px" ng-style="{'flex-grow': sliders.changeFlex.FSFB3.flexGrow, 'flex-shrink': sliders.changeFlex.FSFB3.flexShrink, 'flex-basis': sliders.changeFlex.FSFB3.flexBasis}">
+                    width: {{sliders.changeFlex.colWidth[2]+2}}px
+                </div>
             </div>
             <div class="example_3">
                 <div class="item item_1" ng-style="{'flex-grow': sliders.changeFlex.FSFB1.flexGrow, 'flex-shrink': sliders.changeFlex.FSFB1.flexShrink, 'flex-basis': sliders.changeFlex.FSFB1.flexBasis}">
@@ -401,14 +407,14 @@
                     </ul>
                 </div>
             </div>
-            <p class="small">压缩后宽度 w = (flex-basis * flex-shrink / 加权值*) × 溢出值*</p>
+            <p class="small">压缩后宽度 flex-basis -= (flex-basis * flex-shrink / 加权值*) × 溢出值*</p>
             <p class="small" style="font-size: 18px;">
                 *加权值 = 子元素(flex-basis * flex-shrink)之和
                 <span style="float:right; color: red" ng-click='sliders.changeFlex.demo()'>当前加权值：<span ng-bind="sliders.changeFlex.FSFB1.flexShrink * sliders.changeFlex.FSFB1.flexBasis + sliders.changeFlex.FSFB2.flexShrink * sliders.changeFlex.FSFB2.flexBasis + sliders.changeFlex.FSFB3.flexShrink * sliders.changeFlex.FSFB3.flexBasis"></span>px</span>
             </p>
             <p class="small" style="font-size: 18px;">
-                *溢出值 = 子元素宽度之和 - 容器宽度
-                <span style="float:right; color: red">当前溢出值：???px</span>
+                *溢出值 = 子元素flex-basis之和 - 容器宽度
+                <span style="float:right;">当前溢出值：{{sliders.changeFlex.FSFB1.flexBasis + sliders.changeFlex.FSFB2.flexBasis + sliders.changeFlex.FSFB3.flexBasis - 778}}px</span>
             </p>
 
         </div>
