@@ -29,7 +29,7 @@
 </head>
 
 <body>
-    <div class="page-splash" ng-class="splash.dropDown" impress-dir-splash ng-click='splash.hide()' ng-if=false>
+    <div class="page-splash" ng-class="splash.dropDown" impress-dir-splash ng-click='splash.hide()'>
         <div class="page-splash-message">
             <svg xmlns="http://www.w3.org/2000/svg" width="1024" height="100" viewBox="0 0 1024 100">
                 <defs>
@@ -78,27 +78,6 @@
         <!-- <canvas id="demo" width="1024" height="400" style="position: absolute; top: 50%; left: 50%; margin-left: -512px; margin-top: -200px"></canvas> -->
         <!-- <div class="png-animation"></div> -->
     </div>
-    <!--
-        
-        Now that's the core element used by impress.js.
-        
-        That's the wrapper for your presentation steps. In this element all the impress.js magic happens.
-        It doesn't have to be a `<div>`. Only `id` is important here as that's how the script find it.
-        
-        You probably won't need it now, but there are some configuration options that can be set on this element.
-        
-        To change the duration of the transition between slides use `data-transition-duration="2000"` giving it
-        a number of ms. It defaults to 1000 (1s).
-        
-        You can also control the perspective with `data-perspective="500"` giving it a number of pixels.
-        It defaults to 1000. You can set it to 0 if you don't want any 3D effects.
-        If you are willing to change this value make sure you understand how CSS perspective works:
-        https://developer.mozilla.org/en/CSS/perspective
-        
-        But as I said, you won't need it for now, so don't worry - there are some simple but interesting things
-        right around the corner of this tag ;)
-        
-    -->
     <div id="impress" impress-dir-sliders>
         <!-- old time start -->
         <div class="step slide old_time" data-x="-2100" data-y="-2400" data-z="-5000">
@@ -190,7 +169,7 @@
         </div>
         <!-- old time end -->
         <!-- title start -->
-        <div id="title" class="step" data-x="-1000" data-y="-500" data-scale="4">
+        <div id="title" class="step" data-x="-1000" data-y="-500" data-scale="4" data-rotate-y="15">
             <span class="try">碰到这些问题，赶紧试试</span>
             <h1>FLEX</h1>
             <!-- <span class="footnote">布局大法</span> -->
@@ -207,16 +186,9 @@
             <p class="h4">Flex布局模块旨在提供一个更佳有效的布局方式，更好的控制项目的对齐和自由分配容器空间，即使它们的大小是未知的或动态的。因此得其名"flex"。</p>
             <!-- <img src="/src/client/images/browser_support.png" width="100%" alt=""> -->
         </div>
-        <div class="step slide" data-x="1000" data-y="1000" data-z="-500" data-rotate-y="90">
-            <h3>兼容性</h3>
-            <p>
-                目前，它已经得到了除IE10以下版本的主流浏览器的支持，这意味着，可以较放心地使用这项功能。
-            </p>
-            <img src="/src/client/images/browser_support.png" width="100%" alt="">
-        </div>
         <!-- intro end -->
         <!-- changeAIJA start -->
-        <div class="step slide flex-slide" data-x="500" data-y="1000" data-z="-1000" data-rotate-y="180">
+        <div class="step slide flex-slide" data-x="1000" data-y="1000" data-z="-500" data-rotate-y="90">
             <p>回到例子#2：</p>
             <div class="fg-row">
                 <div class="fg-col-xs-6">
@@ -271,7 +243,7 @@
         <!-- changeAIJA end -->
         
         <!-- changeFF start -->
-        <div class="step slide flex-slide" data-x="0" data-y="1000" data-z="-500" data-rotate-y="270">
+        <div class="step slide flex-slide" data-x="500" data-y="1000" data-z="-1000" data-rotate-y="180">
             <p>回到例子#1：</p>
             <div class="example_1" ng-style="{'flex-direction': sliders.changeAIJA.FDVal, 'flex-wrap': sliders.changeAIJA.FWVal}">
                 <div ng-style="{'order': $index==1 ? sliders.changeAIJA.flexOrder : ''}" ng-click='sliders.oldTime.showLong($index)' ng-dblclick="sliders.oldTime.appendChild()" ng-repeat="item in sliders.oldTime.quaters track by $index" ng-bind='item'></div>
@@ -319,8 +291,9 @@
                 </div>
             </div>
         </div>
-
-        <div class="step slide" data-x="500" data-y="1500" data-z="-500" data-rotate-y="0" data-rotate-x="270" data-rotate-z="-90">
+        
+        <!-- flex attributes start -->
+        <div class="step slide" data-x="0" data-y="1000" data-z="-500" data-rotate-y="270">
             <h3>flex属性</h3>
             <p class="h4">
                 常规用法：
@@ -341,8 +314,10 @@
                 </code>
             </pre>
         </div>
+        <!-- flex attributes end -->
 
-        <div class="step slide flex-slide" data-x="500" data-y="3000" data-z="-500" data-rotate-y="0" data-rotate-x="270" data-rotate-z="-90">
+        <!-- flex shrink & basis start -->
+        <div class="step slide flex-slide" data-x="2500" data-y="500" data-rotate-x="60">
             <h4>flex-shrink & flex-basis</h4>
             <p class="small">flexbox中元素宽度<strong>需收缩时</strong>才受这两个值的影响</p>
             <p class="small" style="font-size: 18px;">例子： 容器宽度:778px</p>
@@ -416,9 +391,114 @@
                 *溢出值 = 子元素flex-basis之和 - 容器宽度
                 <span style="float:right;">当前溢出值：{{sliders.changeFlex.FSFB1.flexBasis + sliders.changeFlex.FSFB2.flexBasis + sliders.changeFlex.FSFB3.flexBasis - 778}}px</span>
             </p>
-
+            <p class="text-hide small">(1px像素偏差纯属正常，因为无法整除)</p>
         </div>
-        <div id="overview" class="step" data-x="1000" data-y="1500" data-scale="10">
+        <!-- flex shrink & basis end -->
+
+        <!-- flex grow start -->
+        <div class="step slide flex-slide" data-x="2500" data-y="500" data-z="1500" data-rotate-x="60">
+            <h4>flex-grow & flex-basis</h4>
+            <p class="small">flexbox中元素宽度<strong>需扩张时</strong>才受这两个值的影响</p>
+            <p class="small" style="font-size: 18px;">例子： 容器宽度:778px</p>
+            <div style="font-size: 20px; display: flex;">
+                <div style="padding: 0 10px" ng-style="{'flex-grow': sliders.changeFlexGrow.FSFB1.flexGrow, 'flex-shrink': sliders.changeFlexGrow.FSFB1.flexShrink, 'flex-basis': sliders.changeFlexGrow.FSFB1.flexBasis}">
+                    width: {{sliders.changeFlexGrow.colWidth[0]}}px
+                </div>
+                <div style="padding: 0 10px" ng-style="{'flex-grow': sliders.changeFlexGrow.FSFB2.flexGrow, 'flex-shrink': sliders.changeFlexGrow.FSFB2.flexShrink, 'flex-basis': sliders.changeFlexGrow.FSFB2.flexBasis}">
+                    width: {{sliders.changeFlexGrow.colWidth[1]}}px
+                </div>
+                <div style="padding: 0 10px" ng-style="{'flex-grow': sliders.changeFlexGrow.FSFB3.flexGrow, 'flex-shrink': sliders.changeFlexGrow.FSFB3.flexShrink, 'flex-basis': sliders.changeFlexGrow.FSFB3.flexBasis}">
+                    width: {{sliders.changeFlexGrow.colWidth[2]}}px
+                </div>
+            </div>
+            <div class="example_4">
+                <div class="item item_1" ng-style="{'flex-grow': sliders.changeFlexGrow.FSFB1.flexGrow, 'flex-shrink': sliders.changeFlexGrow.FSFB1.flexShrink, 'flex-basis': sliders.changeFlexGrow.FSFB1.flexBasis}">
+                    <ul class="small">
+                        <li>
+                            <div>flex-grow:</div>
+                            <div><input type="number" ng-model='sliders.changeFlexGrow.FSFB1.flexGrow'></div>
+                        </li>
+                        <li>
+                            <div>flex-shrink:</div>
+                            <div><input type="number" ng-model='sliders.changeFlexGrow.FSFB1.flexShrink'></div>
+                        </li>
+                        <li>
+                            <div>flex-basis:</div>
+                            <div class="afterfix-px"><input type="number" step='10' ng-model='sliders.changeFlexGrow.FSFB1.flexBasis'></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="item item_2" ng-style="{'flex-grow': sliders.changeFlexGrow.FSFB2.flexGrow, 'flex-shrink': sliders.changeFlexGrow.FSFB2.flexShrink, 'flex-basis': sliders.changeFlexGrow.FSFB2.flexBasis}">
+                    <ul class="small">
+                        <li>
+                            <div>flex-grow:</div>
+                            <div><input type="number" ng-model='sliders.changeFlexGrow.FSFB2.flexGrow'></div>
+                        </li>
+                        <li>
+                            <div>flex-shrink:</div>
+                            <div><input type="number" ng-model='sliders.changeFlexGrow.FSFB2.flexShrink'></div>
+                        </li>
+                        <li>
+                            <div>flex-basis:</div>
+                            <div class="afterfix-px"><input type="number" step='10' ng-model='sliders.changeFlexGrow.FSFB2.flexBasis'></div>
+                        </li>                        
+                    </ul>
+                </div>
+                <div class="item item_3" ng-style="{'flex-grow': sliders.changeFlexGrow.FSFB3.flexGrow, 'flex-shrink': sliders.changeFlexGrow.FSFB3.flexShrink, 'flex-basis': sliders.changeFlexGrow.FSFB3.flexBasis}">
+                    <ul class="small">
+                        <li>
+                            <div>flex-grow:</div>
+                            <div><input type="number" ng-model='sliders.changeFlexGrow.FSFB3.flexGrow'></div>
+                        </li>
+                        <li>
+                            <div>flex-shrink:</div>
+                            <div><input type="number" ng-model='sliders.changeFlexGrow.FSFB3.flexShrink'></div>
+                        </li>
+                        <li>
+                            <div>flex-basis:</div>
+                            <div class="afterfix-px"><input type="number" step='10' ng-model='sliders.changeFlexGrow.FSFB3.flexBasis'></div>
+                        </li>                        
+                    </ul>
+                </div>
+            </div>
+            <p class="small">扩张后宽度 flex-basis += (flex-grow / 扩展和*) × 剩余量*</p>
+            <p class="small" style="font-size: 18px;">
+                *扩展和 = 子元素flex-grow之和
+                <span style="float:right; color: red" ng-click='sliders.changeFlexGrow.demo()'>当前扩展和：<span ng-bind="sliders.changeFlexGrow.FSFB1.flexGrow + sliders.changeFlexGrow.FSFB2.flexGrow + sliders.changeFlexGrow.FSFB3.flexGrow"></span></span>
+            </p>
+            <p class="small" style="font-size: 18px;">
+                *剩余量 = 容器宽度 - 子元素flex-basis之和
+                <span style="float:right; color: red">当前剩余值：{{ -(sliders.changeFlexGrow.FSFB1.flexBasis + sliders.changeFlexGrow.FSFB2.flexBasis + sliders.changeFlexGrow.FSFB3.flexBasis) + 778}}px</span>
+            </p>
+            <p class="text-hide small">(1px像素偏差纯属正常，因为无法整除)</p>
+        </div>
+        <!-- flex grow end -->
+
+        <div class="step slide" data-x="1500" data-y="0" data-z="1000" data-rotate-y="90">
+            <h3>兼容性</h3>
+            <p>
+                目前，它已经得到了除IE10以下版本的主流浏览器的支持，这意味着，可以较放心地使用这项功能。
+            </p>
+            <img src="/src/client/images/browser_support.png" width="100%" alt="">
+        </div>
+
+        <div class="step slide-bug-issue" data-x="2500" data-y="-2500" data-z="-500" data-rotate-x="60" data-rotate-y="20" data-rotate-z="-220">
+            <h4>Bug issues：</h4>
+            <div class="fg-row">
+                <div class="fg-col-xs-9 fg-off-xs-2 small" style="font-size: 36px;">
+                    <ul>
+                        <li>Firefox中应用在button元素内无效</li>
+                        <li>IE10中Flexbox中的子元素需设为块级元素，否则会出现意想不到布局问题</li>
+                        <li>IE10与IE11中实现flex-directiion为column布局时，容器min-height设置无效</li>
+                        <li>有待大神们补充</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    
+        <!-- flex overview start -->
+        <div id="overview" class="step" data-x="1000" data-y="500" data-scale="5" data-rotate-y="30" data-rotate-x="-40">
+            <h3 style="font-size: 200px; text-align: center"><span>E</span><span>N</span><span>D</span></h3>
         </div>
     </div>
     <!-- build:js js/lib.js -->

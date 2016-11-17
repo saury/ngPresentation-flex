@@ -182,7 +182,6 @@ pre {
 // #title.future {
 // 	opacity: 0;
 // }
-
 code {
     overflow: hidden;
     position: relative;
@@ -285,7 +284,7 @@ code {
         display: flex;
         flex-wrap: wrap;
         div {
-        	flex: 1;
+            flex: 1;
             background: indianred;
             color: #fff;
             text-align: center;
@@ -311,40 +310,83 @@ code {
             // height: 200px;
         }
     }
-    pre.hide{
-    	display: none;
+    pre.hide {
+        display: none;
     }
-    select{
-    	font-size: 20px;
+    select {
+        font-size: 20px;
     }
-    .example_3 {
-		display: flex;
-		background: hsl(200, 40%, 70%);
-		.item{
-			padding: 10px;
-			box-sizing: border-box;
-			background: hsl(50, 80%, 50%);
-			background-clip: content-box;
-			ul {
-				text-align: center;
-				li:not(:last-child){
-					border-bottom: 1px dashed #fff;
-				}
+    .example_3,
+    .example_4 {
+        display: flex;
+        background: hsl(200, 40%, 70%);
+        .item {
+            padding: 10px;
+            box-sizing: border-box;
+            background: hsl(50, 80%, 50%);
+            background-clip: content-box;
+            ul {
+                text-align: center;
+                li:not(:last-child) {
+                    border-bottom: 1px dashed #fff;
+                }
+            }
+            input {
+                font-size: 80%;
+                width: 80%;
+                margin: 0 auto 20px;
+            }
+            .afterfix-px {
+                position: relative;
+                &:after {
+                    content: 'px';
+                    position: absolute;
+                    height: 100%;
+                    right: 20%;
+                }
+            }
+        }
+    }
+    .example_4 {
+        background: hsl(250, 60%, 70%);
+        .item {
+            background-color: hsl(0, 40%, 70%);
+        }
+    }
+}
+
+.slide-bug-issue{
+	ul,li{
+		list-style: upper-roman;
+	}
+	li{
+		padding-left: 20px;
+	}
+}
+
+.step{
+	&.bounceOut {
+	    animation: bounceOut .5s ease-out forwards;
+	}
+}
+#overview {
+	display: block;
+	span{
+		opacity: 0;
+	}
+}
+.impress-on-overview {
+	#overview {
+		span{
+			transition: opacity .4s 3s ease-in;
+			opacity: 1;
+			padding: 0 20px;
+			&:last-child{
+				transition-delay: 3.1s;
 			}
-			input {
-				font-size: 80%;
-				width: 80%;
-				margin: 0 auto 20px;
-			}
-			.afterfix-px{
-				position: relative;
-					&:after{
-						content: 'px';
-						position: absolute;
-						height: 100%;
-						right: 20%;
-					}
+			&:nth-child(2){
+				transition-delay: 3.2s;
 			}
 		}
-    }
+	}
 }

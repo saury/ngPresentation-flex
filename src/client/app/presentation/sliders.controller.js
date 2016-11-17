@@ -65,5 +65,24 @@
             },
             colWidth: []
         }
+
+        vm.changeFlexGrow = {
+            FSFB1: {
+                flexGrow: 1,
+                flexShrink: 1,
+                flexBasis: 100
+            },
+            FSFB2: {
+                flexGrow: 1,
+                flexShrink: 2,
+                flexBasis: 100
+            },
+            FSFB3: {
+                flexGrow: 1,
+                flexShrink: 3,
+                flexBasis: 100
+            },
+            colWidth: []
+        }
     }
 })();
