@@ -375,8 +375,12 @@ code {
 		opacity: 0;
 	}
 }
+#overview {
+    pointer-events: none;
+}
 .impress-on-overview {
-	#overview {
+    #overview {
+        pointer-events: none;
 		span{
 			transition: opacity .4s 3s ease-in;
 			opacity: 1;
